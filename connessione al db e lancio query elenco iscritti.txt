@@ -1,0 +1,48 @@
+Esempi Videolezione 3107
+
+Esempio: mostro la lista iscritti della tabella iscritti all'interno di una tabella di 4 colonne.
+
+-------------------
+lista_iscritti.php
+------------------
+<!DOCTYPE html>
+
+<html>
+<body>
+<table>
+<tr>
+<td colspan="4">
+<div><b>Lettura righe della tabella iscritti</b></div>
+</td>
+</tr>
+<tr>
+<td>
+<p><b>Nome</b></p>
+</td>
+<td>
+<p><b>Cognome</b></p>
+</td>
+<td>
+<p><b>Email</b></p>
+</td>
+<td>
+<p><b>Gestione</b></p>
+</td>
+
+<?php
+
+.. // connessione al db e lancio query elenco iscritti
+
+while ($riga = mysql_fetch_array($rs)) {
+    $str_id = $riga['id'];
+    $str_nome = $riga['nome'];
+    $str_cognome = $riga['cognome'];
+    $str_email = $riga['email'];
+    echo "<tr><td>$str_nome</td><td>$str_cognome</td><td> $str_email</td><td>
+    <a href=\"modifica.php?id=$str_id\">Modifica</a></td></tr>";
+}
+?>
+
+</table>
+</body>
+</html>
