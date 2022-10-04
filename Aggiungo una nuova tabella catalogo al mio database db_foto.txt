@@ -1,6 +1,6 @@
-Esempi Videolezione 3108
 
-Esempio: aggiungo una nuova tabella catalogo al mio database db_foto
+
+aggiungo una nuova tabella catalogo al mio database db_foto
 con i campi idprod,codice,descrizione,prezzo e una chiave primaria sul campo idprod
 
 
