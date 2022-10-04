@@ -1,0 +1,19 @@
+Esempi Videolezione 3108
+
+Esempio: aggiungo una nuova tabella catalogo al mio database db_foto
+con i campi idprod,codice,descrizione,prezzo e una chiave primaria sul campo idprod
+
+
+<?php
+require_once('dbconfig.php');
+
+$link = @mysqli_connect(DB_HOST, DB_USERN, DB_PSW) or die("Errore connessione: ". mysqli_connect_error());
+$dbw = @mysqli_select_db($link, DB_FOTO) or die("Errore apertura database: " . mysqli_error($link));
+
+$strsql = "CREATE TABLE catalogo (idprod INT UNSIGNED NOT NULL AUTO_INCREMENT , codice VARCHAR( 10 ) NOT NULL , descrizione VARCHAR( 255 ) NOT NULL , prezzo DECIMAL( 8, 2 ) NOT NULL , PRIMARY KEY (idprod))";
+
+@mysqli_query($link,$strsql) or die("Errore query database: " . mysqli_error($error));
+
+echo "Tabella creata";
+
+?>
