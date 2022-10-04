@@ -1,6 +1,6 @@
-Esempi Videolezione 3107
 
-Esempio: mostro la lista iscritti della tabella iscritti all'interno di una tabella di 4 colonne.
+
+mostro la lista iscritti della tabella iscritti all'interno di una tabella di 4 colonne.
 
 -------------------
 lista_iscritti.php
