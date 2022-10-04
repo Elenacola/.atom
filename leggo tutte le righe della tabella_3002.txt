@@ -1,0 +1,22 @@
+Esempi Videolezione 3002
+
+Esempio: leggo tutte le righe della tabella "ordini" del database "db_foto" e mostro le colonne "idordine", "nome", "cognome", "email"
+
+<?php
+require_once('dbconfig.php');
+
+$link = @mysqli_connect(DB_HOST, DB_USERN, DB_PSW) or die("Errore connessione: ". mysqli_connect_error());
+$dbw = @mysqli_select_db($link, DB_FOTO) or die("Errore apertura database: " . mysqli_error($link));
+
+$strsql = "SELECT id_ordine,nome,cognome,email FROM ordini";
+$rs = @mysqli_query($link, $strsql) or die("Errore query database: " . mysqli_error($link));
+
+while ($riga = mysqli_fetch_array($rs)) {
+    $str_id = $riga['idordine'];
+    $str_nome = $riga['nome'];
+    $str_cognome = $riga['cognome'];
+    $str_email = $riga['email'];
+    echo "Riga:  $str_id -> Nome: $str_nome - Cognome:$str_cognome - Email:$str_email<br>";
+}
+
+?>
