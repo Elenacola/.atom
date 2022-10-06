@@ -1,0 +1,33 @@
+
+recupero i dati idiscritto,nome,cognome,email dalla tabella "iscritti" 
+
+
+
+<?php
+require_once('dbconfig.php');
+
+$link = @mysqli_connect(DB_HOST, DB_USERN, DB_PSW) or die("Errore connessione: ". mysqli_connect_error());
+$dbw = @mysqli_select_db($link, DB_FOTO) or die("Errore apertura database: " . mysqli_error($link));
+
+$strsql = "SELECT idiscritto,nome,cognome,email FROM iscritti WHERE idiscritto=3";
+$rs = @mysqli_query($link, $strsql) or die("Errore query database: " . mysqli_error($link));
+
+while ($riga = mysqli_fetch_array($rs)) {
+    $str_id = $riga['idiscritto'];
+    $str_nome = $riga['nome'];
+    $str_cognome = $riga['cognome'];
+    $str_email = $riga['email'];
+}
+
+?>
+
+<!DOCTYPE html>
+<body>
+<form method="post" action="http://www.tuosito.com/em/aggiorno_iscritto.php">
+<p>ID: <input type="text" size="10" name="id" value="<?=$str_id?>"></p>
+<p>Nome: <input type="text" size="10" name="nome" value="<?=$str_nome?>"></p>
+<p>Cognome: <input type="text" size="10" name="cognome" value="<?=$str_cognome?>"></p>
+<p>Email: <input type="text" size="15" name="email" value="<?=$str_email?>"></p>
+<p><inpt type="submit" value="Modifica"></p>
+</form>
+</body>
