@@ -1,0 +1,31 @@
+Leggo i dati (id,nome,cognome,email) di uno specifico utente con id=3 da un file "iscritti.txt" e li inserisco all'interno di un modulo web mostrando a video il modulo.
+
+
+view_riga.php
+---------------
+
+<?php
+$textfile = fopen("iscritti.txt", "r");
+
+while ( $rigafile = fgets($textfile,1024)) {
+$campiriga = explode("|", $rigafile);
+$idriga = $campiriga[0];
+
+if ($idriga == 3) {
+$cid = $campiriga[0];
+$cnome = $campiriga[1];
+$ccognome = $campiriga[2];
+$cemail = $campiriga[3];
+}
+
+}
+fclose($textfile);
+?>
+
+<form method="post" action="update.php">
+ID: <input type="text" size="10" name="id" value="<?= $cid ?>"><br>
+Nome: <input type="text" size="10" name="nome" value="<?= $cnome?>"><br>
+Cognome <input type="text" size="10" name="cognome" value="<?=$ccognome?>"><br>
+Email <input type="text" size="10" name="email" value="<?= $cemail?>"><br>
+<input type="submit" value="Modifica">
+</form>
