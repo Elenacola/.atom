@@ -1,0 +1,21 @@
+Stampo a video il valore della riga 3 del file "iscritti.txt" e SOLO questa.
+
+
+leggo_riga.php
+-----------------
+
+<?php
+
+$textfile = fopen("iscritti.txt", "r");
+
+while ( $rigafile = fgets($textfile,1024) ) {
+$campiriga = explode("|", $rigafile);
+$idriga = $campiriga[0];
+if ($idriga == 3) {
+echo $rigafile;
+}
+}
+
+fclose($textfile);
+
+?>
