@@ -1,6 +1,5 @@
-Esempi Videolezione 3002
 
-Esempio: leggo tutte le righe della tabella "ordini" del database "db_foto" e mostro le colonne "idordine", "nome", "cognome", "email"
+leggo tutte le righe della tabella "ordini" del database "db_foto" e mostro le colonne "idordine", "nome", "cognome", "email"
 
 <?php
 require_once('dbconfig.php');
