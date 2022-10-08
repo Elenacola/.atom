@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<body>
+<form action="isc.php" method="post">
+<table>
+<tr>
+<td>
+<p>Nome</p>
+<input type="text" name="nome">
+<p>Email:</p>
+<input type="text" name="email">
+<p><input type="submit" value="Ok"></p>
+</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
+
+
+
+<?php
+require_once('dbconfig.php');
+
+$cnome = $_POST['nome'];
+$cemail = $_POST['email'];
+
+$link = @mysqli_connect(DB_HOST, DB_USERN, DB_PSW) or die("Errore connessione: ". mysqli_connect_error());
+$dbw = @mysqli_select_db($link, DB_FOTO) or die("Errore apertura database: " . mysqli_error($link));
+
+$strsql="INSERT INTO iscritti (nome,email) VALUES ('$cnome','$cemail')";
+@mysqli_query($link, "$strsql") or die("Errore query database: " . mysqli_error($link));
+
+echo "Grazie per esserti iscritto";
+
+?>
