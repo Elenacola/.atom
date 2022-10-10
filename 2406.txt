@@ -1,4 +1,3 @@
-Leggo i dati (id,nome,cognome,email) di uno specifico utente con id=3 da un file "iscritti.txt" e li inserisco all'interno di un modulo web mostrando a video il modulo.
 
 ---------------
 view_riga.php
